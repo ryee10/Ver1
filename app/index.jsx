@@ -1,14 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
-import { Image, ImageBackground, ScrollView, Text, View } from 'react-native';
+import { Image, ImageBackground, ScrollView, Text, View, StyleSheet } from 'react-native';
 import { Redirect, router } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { LinearGradient } from 'expo-linear-gradient';
 
 import { images } from '../constants';
 import CustomButton from '../components/CustomButton.jsx';
 
 export default function App() {
   return (
-    <SafeAreaView className="bg-primary h-full">
+    <SafeAreaView>
+      <LinearGradient
+      style={style.container}
+      colors={["#4C509F, #4E4799, #B61E61, #F7053F"]}>
       <ScrollView contentContainerStyle={{ height: '100%'}}>
         <View className ="w-full justify-center items-center min-h-[85vh] px4">
           <Image
@@ -22,11 +26,6 @@ export default function App() {
             <Text className= "text-secondary-200">Aura</Text>
             </Text>
 
-            <Image
-              source={images.path}
-              className="w-[500px] h-[10px] absolute-bottom-2 -right-36"
-              resizeMode="contain"
-            />
           </View>
             <Text className="text-sm font-pregular text-gray-100 mt-2 text-center">Where 
               Cashless meets innovation: embark on a journey of limitless
@@ -40,10 +39,19 @@ export default function App() {
             />
         </View>
       </ScrollView>
-
       <StatusBar backgroundColor='#161622' style='light' />
+      </LinearGradient>
     </SafeAreaView>
   );
 }
 
+const style = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor:'#fff',
+    alignItems: 'center',
+    justifyContent: 'center'
+
+  }
+})
 
